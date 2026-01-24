@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Baixe o Catálogo Técnico de Peças Automotivas G.Cartaxo. Conteúdo exclusivo para distribuidores, autocenters, oficinas e autopeças.">
+    <title>Download Catálogo Técnico - G.Cartaxo</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="/">
+                        <img src="logo.png" alt="G.Cartaxo - Buchas Lonadas">
+                    </a>
+                </div>
+                <nav class="nav">
+                    <ul class="nav-menu">
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/quem-somos.html">Quem Somos</a></li>
+                        <li><a href="/produtos.html">Produtos</a></li>
+                        <li><a href="/downloads.html" class="active">Catálogo</a></li>
+                        <li><a href="/contato.html">Contato</a></li>
+                    </ul>
+                    <button class="mobile-menu-toggle" aria-label="Menu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- 1️⃣ HERO SECTION (Duas Colunas) -->
+    <section class="download-hero">
+        <div class="container">
+            <div class="hero-grid">
+                <!-- Coluna Esquerda (Texto) -->
+                <div class="hero-text">
+                    <h1>Catálogo Técnico de Peças Automotivas G.Cartaxo</h1>
+                    <p class="subtitle">Aplicações completas por marca, modelo e código técnico. Conteúdo desenvolvido para o mercado profissional.</p>
+                    
+                    <ul class="benefit-list">
+                        <li><span class="check-icon">✓</span> Aplicações por veículo</li>
+                        <li><span class="check-icon">✓</span> Códigos técnicos detalhados</li>
+                        <li><span class="check-icon">✓</span> Linha completa de buchas automotivas</li>
+                        <li><span class="check-icon">✓</span> Conteúdo atualizado e padronizado</li>
+                    </ul>
+                    
+                    <div class="download-info">
+                        <a href="#lead-form" class="btn btn-primary btn-large">Baixar Catálogo Técnico (PDF)</a>
+                        <p class="aux-text">Tamanho aproximado: 15MB | Formato PDF</p>
+                    </div>
+                </div>
+
+                <!-- Coluna Direita (Visual) -->
+                <div class="hero-visual">
+                    <!-- Placeholder para o Mockup 3D do Catálogo -->
+                    <div class="mockup-placeholder">
+                        <img src="mockup_catalogo.png"Mockup 3D do Catálogo Técnico G.Cartaxo">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2️⃣ FORMULÁRIO DE CAPTURA DE LEADS -->
+    <section class="lead-form-section" id="lead-form">
+        <div class="container">
+            <div class="form-wrapper">
+                <h2>Acesse o catálogo técnico completo</h2>
+                <form id="download-form" class="download-form">
+                    <div class="form-group">
+                        <label for="nome">Nome Completo *</label>
+                        <input type="text" id="nome" name="nome" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="empresa">Nome da Empresa *</label>
+                        <input type="text" id="empresa" name="empresa" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="tipo">Tipo de Empresa *</label>
+                        <select id="tipo" name="tipo" required>
+                            <option value="" disabled selected>Selecione o tipo</option>
+                            <option value="Distribuidor">Distribuidor</option>
+                            <option value="Autocenter">Autocenter</option>
+                            <option value="Oficina">Oficina</option>
+                            <option value="Autopeças">Autopeças</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="whatsapp">WhatsApp *</label>
+                        <input type="tel" id="whatsapp" name="whatsapp" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">E-mail *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary btn-large">Liberar Download do Catálogo</button>
+                    
+                    <div id="form-message" class="form-message" style="display:none;"></div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3️⃣ SEÇÃO “O QUE VOCÊ ENCONTRA NO CATÁLOGO” -->
+    <section class="catalog-features">
+        <div class="container">
+            <h2>O que você encontra no Catálogo G.Cartaxo</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">⚙️</div>
+                    <h3>Aplicações por Marca e Modelo</h3>
+                    <p>Encontre rapidamente a peça certa para cada veículo, organizada por montadora e modelo.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔢</div>
+                    <h3>Códigos Técnicos Padronizados</h3>
+                    <p>Utilize nossos códigos para facilitar pedidos e garantir a padronização do seu estoque.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">✅</div>
+                    <h3>Informações Técnicas Confiáveis</h3>
+                    <p>Dados precisos para garantir a aplicação correta e a segurança do serviço.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📦</div>
+                    <h3>Linha Completa de Produtos</h3>
+                    <p>Conheça todo o portfólio de buchas, bieletas e componentes de suspensão G.Cartaxo.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📈</div>
+                    <h3>Conteúdo Focado em Vendas</h3>
+                    <p>Informações que ajudam sua equipe a vender mais e melhor, com foco na aplicação correta.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4️⃣ SEÇÃO DE AUTORIDADE E CONFIANÇA -->
+    <section class="trust-section">
+        <div class="container">
+            <h2>Conteúdo técnico desenvolvido para o mercado profissional</h2>
+            <p class="trust-text">O catálogo G.Cartaxo foi desenvolvido para atender as necessidades técnicas de distribuidores, oficinas, autocenters e autopeças, oferecendo informações claras, confiáveis e atualizadas.</p>
+        </div>
+    </section>
+
+    <!-- 5️⃣ SEÇÃO DE SUPORTE (fundo em vermelho institucional) -->
+    <section class="support-cta">
+        <div class="container">
+            <h2>Não encontrou sua peça?</h2>
+            <p>Nosso atendimento especializado pode ajudar você a identificar a aplicação correta.</p>
+            <a href="https://wa.me/5585999999999" target="_blank" class="btn btn-secondary">Falar com Atendimento no WhatsApp</a>
+        </div>
+    </section>
+
+    <!-- 6️⃣ RODAPÉ SIMPLES E FUNCIONAL -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h4>G.Cartaxo</h4>
+                    <p>Distribuidora de Peças Automotivas no Ceará</p>
+                </div>
+                <div class="footer-column">
+                    <h4>Links Rápidos</h4>
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/quem-somos.html">Quem Somos</a></li>
+                        <li><a href="/produtos.html">Produtos</a></li>
+                        <li><a href="/downloads.html">Catálogo</a></li>
+                        <li><a href="/contato.html">Contato</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Contato</h4>
+                    <p>WhatsApp: (85) 9 9999-9999</p>
+                    <p>Ceará - Brasil</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 G.Cartaxo - Todos os direitos reservados</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Flutuante -->
+    <a href="https://wa.me/5585999999999" target="_blank" class="whatsapp-float" aria-label="WhatsApp">
+        <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="30" cy="30" r="30" fill="#25D366"/>
+            <path d="M30.5 15C22.5 15 16 21.5 16 29.5C16 32.3 16.9 34.9 18.4 37L16.2 44.8L24.3 42.7C26.3 44 28.8 44.8 31.5 44.8C39.5 44.8 46 38.3 46 30.3C46 22.3 39.5 15 30.5 15ZM39.3 36.8C39 37.7 37.5 38.5 36.7 38.7C36.1 38.8 35.3 38.9 34.4 38.6C33.9 38.4 33.2 38.1 32.3 37.7C28.3 35.9 25.7 31.8 25.5 31.5C25.3 31.2 23.8 29.2 23.8 27.1C23.8 25 24.9 23.9 25.3 23.5C25.7 23.1 26.1 23 26.4 23C26.6 23 26.8 23 27 23C27.2 23 27.5 22.9 27.8 23.6C28.1 24.3 28.8 26.4 28.9 26.6C29 26.8 29.1 27 29 27.2C28.9 27.4 28.8 27.6 28.6 27.8C28.4 28 28.2 28.3 28.1 28.4C27.9 28.6 27.7 28.8 27.9 29.1C28.1 29.5 28.8 30.6 29.8 31.5C31.1 32.6 32.2 33 32.5 33.1C32.8 33.2 33.1 33.2 33.3 32.9C33.5 32.6 34.2 31.8 34.4 31.5C34.6 31.2 34.9 31.2 35.2 31.3C35.5 31.4 37.6 32.4 37.9 32.6C38.2 32.8 38.4 32.9 38.5 33C38.6 33.3 38.6 34 38.3 34.8Z" fill="white"/>
+        </svg>
+    </a>
+
+    <script src="script.js"></script>
+</body>
+</html>
