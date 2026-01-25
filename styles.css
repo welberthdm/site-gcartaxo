@@ -134,8 +134,23 @@ ul {
    HERO SECTION
    ======================================== */
 
+/* No arquivo styles.css */
+
 .hero {
-    background: linear-gradient(135deg, var(--color-primary) 0%, #3a3530 100%);
+    /* O linear-gradient aqui serve como uma "máscara" escura. 
+       Como seu banner já tem texto e cores fortes, isso ajuda o texto 
+       do HTML (H1 e botões) a continuar legível por cima da imagem. */
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/hero_section.jpg');
+    
+    /* Garante que o banner cubra toda a área sem distorcer */
+    background-size: cover;
+    
+    /* Centraliza a imagem */
+    background-position: center;
+    
+    /* Evita repetição caso a tela seja gigante */
+    background-repeat: no-repeat;
+    
     color: var(--color-white);
     padding: 100px 0;
     text-align: center;
