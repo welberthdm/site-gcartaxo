@@ -166,85 +166,94 @@ console.log('%c G.Cartaxo - Distribuidora de Peças Automotivas ', 'background: 
 console.log('%c Site desenvolvido com HTML, CSS e JavaScript ', 'background: #A01915; color: #FFFFFF; font-size: 12px; padding: 5px;');
 
 // ========================================
-// FORMULÁRIO DE DOWNLOADS (CAPTURA DE LEADS)
+// FORMULÁRIO DE DOWNLOADS (INTEGRAÇÃO FORMSPREE)
 // ========================================
 
 document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('download-form');
     const messageDiv = document.getElementById('form-message');
-    const pdfPath = 'Catalogo_G_Cartaxo.pdf'; // Caminho do seu PDF
+    
+    // ATENÇÃO: Verifique se o nome do arquivo está correto na pasta do site
+    const pdfPath = 'Catalogo_G_Cartaxo.pdf'; 
 
     if (form) {
         form.addEventListener('submit', function(e) {
-            e.preventDefault();
+            e.preventDefault(); // Impede o recarregamento da página
             
-            // 1. Coletar Dados
+            // Muda o texto do botão para dar feedback visual
+            const submitBtn = form.querySelector('button[type="submit"]');
+            const originalBtnText = submitBtn.innerText;
+            submitBtn.innerText = 'Enviando...';
+            submitBtn.disabled = true;
+
             const formData = new FormData(form);
-            const data = Object.fromEntries(formData.entries());
 
-            // 2. Validação Simples (Campos obrigatórios já são tratados pelo 'required' do HTML)
-            if (!data.nome || !data.empresa || !data.tipo || !data.whatsapp || !data.email) {
-                showMessage('Por favor, preencha todos os campos obrigatórios.', 'error');
-                return;
-            }
-
-            // 3. Simulação de Envio para o Backend (Atenção: AQUI PRECISA DE UM BACKEND REAL)
-            
-            // ----------------------------------------------------------------------------------
-            // INSTRUÇÃO IMPORTANTE:
-            // Para que os dados sejam enviados para o e-mail (gcartaxo.distribuidora@gmail.com),
-            // você DEVE integrar um serviço de backend (como PHP, Node.js, ou um serviço
-            // de formulário como Formspree ou Netlify Forms) neste ponto.
-            // O JavaScript puro não pode enviar e-mails diretamente por segurança.
-            // ----------------------------------------------------------------------------------
-            
-            // Exemplo de como seria a chamada (APENAS UM PLACEHOLDER):
-            /*
-            fetch('/api/send-email', {
-                method: 'POST',
+            // Envio via AJAX para o Formspree
+            fetch(form.action, {
+                method: form.method,
+                body: formData,
                 headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(data),
+                    'Accept': 'application/json'
+                }
             })
-            .then(response => response.json())
-            .then(result => {
-                if (result.success) {
-                    handleSuccess();
+            .then(response => {
+                if (response.ok) {
+                    // Sucesso: Mostra mensagem e baixa o PDF
+                    handleSuccess(); 
                 } else {
-                    showMessage('Erro ao enviar dados. Tente novamente.', 'error');
+                    // Erro no Formspree (ex: e-mail inválido)
+                    response.json().then(data => {
+                        if (Object.hasOwn(data, 'errors')) {
+                            showMessage(data["errors"].map(error => error["message"]).join(", "), 'error');
+                        } else {
+                            showMessage('Ocorreu um erro ao enviar. Tente novamente.', 'error');
+                        }
+                    });
+                    resetButton(submitBtn, originalBtnText);
                 }
             })
             .catch(error => {
+                // Erro de rede
                 showMessage('Erro de conexão. Verifique sua internet.', 'error');
+                resetButton(submitBtn, originalBtnText);
             });
-            */
-
-            // Simulação de sucesso imediato para fins de demonstração:
-            setTimeout(handleSuccess, 1000); 
         });
     }
 
     function showMessage(message, type) {
         messageDiv.textContent = message;
-        messageDiv.className = 'form-message ' + type;
+        // Remove classes anteriores e adiciona a nova
+        messageDiv.className = 'form-message';
+        messageDiv.classList.add(type); 
         messageDiv.style.display = 'block';
+        
+        // Estilização simples baseada no tipo (caso não tenha no CSS)
+        if(type === 'error') {
+            messageDiv.style.color = '#A01915';
+            messageDiv.style.borderColor = '#A01915';
+        } else {
+            messageDiv.style.color = '#2e7d32'; // Verde sucesso
+            messageDiv.style.borderColor = '#2e7d32';
+        }
+    }
+
+    function resetButton(btn, originalText) {
+        btn.innerText = originalText;
+        btn.disabled = false;
     }
 
     function handleSuccess() {
         // 1. Exibir mensagem de confirmação
-        showMessage('Obrigado! Seu download foi liberado com sucesso.', 'success');
+        showMessage('Cadastro recebido! O download iniciará em instantes.', 'success');
         
-        // 2. Desabilitar o formulário para evitar reenvio
-        const inputs = form.querySelectorAll('input, select, button');
-        inputs.forEach(input => input.disabled = true);
-
-        // 3. Iniciar o download do PDF
-        const link = document.createElement('a');
-        link.href = pdfPath;
-        link.download = pdfPath;
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
+        // 2. Iniciar o download do PDF
+        setTimeout(() => {
+            const link = document.createElement('a');
+            link.href = pdfPath;
+            link.download = pdfPath; // Força o download
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }, 1000); // Pequeno delay para o usuário ler a mensagem
     }
 });
